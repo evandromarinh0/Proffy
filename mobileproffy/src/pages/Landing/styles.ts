@@ -1,3 +1,4 @@
+import { RectButton } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -32,7 +33,7 @@ export const ButtonsContainer = styled.View`
   justify-content: space-between;
 `;
 
-export const StudyButton = styled.TouchableOpacity`
+export const StudyButton = styled(RectButton)`
   height: 150px;
   width: 48%;
   border-radius: 8px;
@@ -47,7 +48,7 @@ export const StudyButtonText = styled.Text`
   font-size: 20px;
 `;
 
-export const GiveClassesButton = styled.TouchableOpacity`
+export const GiveClassesButton = styled(RectButton)`
   height: 150px;
   width: 48%;
   border-radius: 8px;
