@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import landingImg from '../../assets/images/landing.png';
 import studyIcon from '../../assets/images/icons/study.png';
@@ -20,6 +21,16 @@ import {
 } from './styles';
 
 const Landing: React.FC = () => {
+  const navigation = useNavigation();
+
+  const handleNavigateToGiveClass = useCallback(() => {
+    navigation.navigate('GiveClasses');
+  }, [navigation]);
+
+  const handleNavigateToStudy = useCallback(() => {
+    navigation.navigate('Study');
+  }, [navigation])
+
   return (
     <Container>
       <LandingImage source={landingImg} />
@@ -28,12 +39,12 @@ const Landing: React.FC = () => {
       <BoldTitle>O que deseja fazer?</BoldTitle>
 
       <ButtonsContainer>
-        <StudyButton>
+        <StudyButton onPress={handleNavigateToStudy}>
           <Image source={studyIcon} />
           <StudyButtonText>Estudar</StudyButtonText>
         </StudyButton>
 
-        <GiveClassesButton>
+        <GiveClassesButton onPress={handleNavigateToGiveClass}>
           <Image source={giveClassesIcon} />
           <GiveClassesButtonText>Dar aulas</GiveClassesButtonText>
         </GiveClassesButton>
