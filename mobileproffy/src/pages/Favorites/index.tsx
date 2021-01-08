@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage';
+import { useFocusEffect } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -10,7 +11,7 @@ import { Container } from './styles';
 const Favorites: React.FC = () => {
   const [favorites, setFavorites] = useState([]);
 
-  useEffect(() => {
+  useFocusEffect(() => {
     AsyncStorage.getItem('favorites').then(response => {
       if (response) {
         const favTeachers = JSON.parse(response);
@@ -18,7 +19,7 @@ const Favorites: React.FC = () => {
         setFavorites(favTeachers);
       }
     });
-  }, [favorites]);
+  });
 
   return (
     <Container>

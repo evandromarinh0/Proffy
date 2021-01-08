@@ -21,6 +21,7 @@ import {
   SubmitButton,
   SubmitButtonText,
 } from './styles';
+import { useFocusEffect } from '@react-navigation/native';
 
 const TeacherList: React.FC = () => {
   const [filterVisibility, setFilterVisibility] = useState(false);
@@ -48,7 +49,7 @@ const TeacherList: React.FC = () => {
     setFilterVisibility(false);
   }, [subject, week_day, time]);
 
-  useEffect(() => {
+  useFocusEffect(() => {
     AsyncStorage.getItem('favorites').then(response => {
       if (response) {
         const favTeachers = JSON.parse(response);
@@ -58,7 +59,7 @@ const TeacherList: React.FC = () => {
         setFavorites(favTeachersIds);
       }
     });
-  }, []);
+  });
 
   return (
     <Container>
