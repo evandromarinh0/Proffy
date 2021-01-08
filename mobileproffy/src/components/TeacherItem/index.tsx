@@ -46,8 +46,8 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher, fav }) => {
 
   const [isFavorite, setIsFavorite] = useState(fav);
 
-  const handleLinkingToWhatsapp = useCallback(() => {
-    api.post('connections', {
+  const handleLinkingToWhatsapp = useCallback(async () => {
+    await api.post('connections', {
       user_id: teacher.id,
     });
 
