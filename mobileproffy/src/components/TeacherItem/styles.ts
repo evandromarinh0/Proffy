@@ -2,7 +2,7 @@ import { RectButton } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
 interface Favorite {
-  fav: boolean;
+  isFavorite: boolean;
 }
 
 export const Container = styled.View`
@@ -75,7 +75,7 @@ export const ButtonsContainer = styled.View`
 `;
 
 export const FavButton = styled(RectButton)<Favorite>`
-  background: ${props => props.fav ? '#e33d3d' : '#8257e5' };
+  background: ${props => props.isFavorite ? '#c53030' : '#8257e5'};
   width: 56px;
   height: 56px;
   border-radius: 8px;
@@ -84,9 +84,11 @@ export const FavButton = styled(RectButton)<Favorite>`
   margin-right: 8px;
 `;
 
-export const ToFav = styled.Image``;
+export const ToFav = styled.Image`
+`;
 
-export const ToUnfav = styled.Image``;
+export const ToUnfav = styled.Image`
+`;
 
 export const ContactButton = styled(RectButton)`
   background: #04d361;
